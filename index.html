@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyrics</title>
+<style>
+    body {
+        background-color: #ff69b4;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+        padding: 50px;
+    }
+
+    .lyrics {
+        font-size: 60px; /* Increase font size */
+        line-height: 1.6;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @keyframes beat {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.05);
+        }
+    }
+
+    .word {
+        opacity: 0;
+        display: inline-block;
+        transition: opacity 2s ease-in-out; /* Tăng thời gian hiển thị từ */
+        font-family: Pacifico, cursive;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <div class="lyrics" id="lyrics">
+        <span class="word">My</span>
+        <span class="word">baby</span>
+        <span class="word" data-speed="fast">love</span>
+        <span class="word" data-speed="fast">you</span>
+        <span class="word">so</span>
+        <span class="word">much</span>
+        <span class="word">forever</span>
+        <span class="word">you</span>
+        <span class="word">and</span>
+        <span class="word">I</span><br>
+        <span class="word">I</span>
+        <span class="word" data-speed="fast">love</span>
+        <span class="word">you</span>
+        <span class="word">oh!</span>
+        <span class="word">I</span>
+        <span class="word" data-speed="fast">love</span>
+        <span class="word">you</span>
+        <span class="word">so</span>
+        <span class="word">much</span>
+        <span class="word">forever</span>
+        <span class="word">you</span>
+        <span class="word">and</span>
+        <span class="word">I 💘</span>
+    </div>
+
+<script>
+    const words = document.querySelectorAll('.word');
+    let index = 0;
+
+    function showWords() {
+        if (index < words.length) {
+            words[index].style.opacity = 1;
+            index++;
+            // Kiểm tra nếu từ hiện tại có thuộc danh sách các từ cần chạy nhanh
+            const speed = words[index - 1].getAttribute('data-speed');
+            const delay = speed === 'fast' ? 250 : 500;
+            setTimeout(showWords, delay); // Tăng thời gian chờ giữa mỗi từ
+        }
+    }
+
+    showWords();
+</script>
+</body>
+</html>
