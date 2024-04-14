@@ -14,7 +14,7 @@
     }
 
     .lyrics {
-        font-size: 60px; /* Increase font size */
+        font-size: 60px; 
         line-height: 1.6;
         position: absolute;
         top: 50%;
@@ -34,7 +34,7 @@
     .word {
         opacity: 0;
         display: inline-block;
-        transition: opacity 2s ease-in-out; /* Tăng thời gian hiển thị từ */
+        transition: opacity 2s ease-in-out; 
         font-family: Pacifico, cursive;
         font-weight: bold;
     }
@@ -75,10 +75,10 @@
         if (index < words.length) {
             words[index].style.opacity = 1;
             index++;
-            // Kiểm tra nếu từ hiện tại có thuộc danh sách các từ cần chạy nhanh
+           
             const speed = words[index - 1].getAttribute('data-speed');
             const delay = speed === 'fast' ? 250 : 500;
-            setTimeout(showWords, delay); // Tăng thời gian chờ giữa mỗi từ
+            setTimeout(showWords, delay); 
         }
     }
 
